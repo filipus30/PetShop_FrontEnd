@@ -1,0 +1,11 @@
+<h3 *ngFor="let owner of owners">
+  <ng-container *ngFor="let pet of owner.petsOwned">
+  <div> Id : {{owner.ownerId}} </div>
+  <div> First Name: {{owner.ownerFirstName}}</div>
+  <div> Last Name: {{owner.ownerLastName}}</div>
+  <div> Address: {{owner.ownerAddress}}</div>
+<div>Phone nr: {{owner.ownerPhoneNr}}</div>
+  <div> Pets Owned: {{pet.name}}</div>
+
+</ng-container>
+</h3>

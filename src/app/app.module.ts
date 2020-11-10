@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PetsListComponent } from './pets/pets-list/pets-list.component';
+import { PetsListComponent } from './petshop/pets-list/pets-list.component';
 import {HttpClientModule} from '@angular/common/http';
-import {NavbarComponent} from './pets/shared/navbar/navbar.component';
+import {NavbarComponent} from './petshop/shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { OwnersListComponent } from './petshop/owners-list/owners-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './home/home.component';
     PetsListComponent,
     NavbarComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    OwnersListComponent
   ],
   imports: [
     BrowserModule,
