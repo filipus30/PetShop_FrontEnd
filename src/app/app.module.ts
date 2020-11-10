@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NavbarComponent} from './petshop/shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { OwnersListComponent } from './petshop/owners-list/owners-list.component';
+import { PetDetailsComponent } from './petshop/pet-details/pet-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { OwnersListComponent } from './petshop/owners-list/owners-list.component
     NavbarComponent,
     NavbarComponent,
     HomeComponent,
-    OwnersListComponent
+    OwnersListComponent,
+    PetDetailsComponent
   ],
   imports: [
     BrowserModule,

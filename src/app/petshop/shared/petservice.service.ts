@@ -10,7 +10,16 @@ export class PetserviceService {
 
   constructor(private http: HttpClient ) { }
 
+  Pets: Pet[];
   getpets(): Observable<Pet[]>{
-   return this.http.get<Pet[]>('https://localhost:59009/api/pets');
+   return  this.http.get<Pet[]>('https://localhost:59009/api/pets');
+  }
+  // tslint:disable-next-line:typedef
+getpetbyid(id: number) {
+    return  this.http.get<Pet>('https://localhost:59009/api/pets/'+id);
   }
 }
+
+
+
+
