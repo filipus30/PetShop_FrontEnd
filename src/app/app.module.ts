@@ -5,11 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PetsListComponent } from './pets/pets-list/pets-list.component';
 import {HttpClientModule} from '@angular/common/http';
+import {NavbarComponent} from './pets/shared/navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PetsListComponent
+    PetsListComponent,
+    NavbarComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

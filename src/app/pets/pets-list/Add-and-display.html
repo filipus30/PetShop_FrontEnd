@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snurf</title>
+  <style>
+    body {
+      background-color: lightblue;
+      height: 100%;
+      width: 100%;
+    }
+    #main {
+      color: blue;
+    }
+    .food {
+      color: green;
+    }
+    .red-color {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<form action="#" onsubmit="createPet(event)">
+  <label for="petname">Pet Name:</label><br>
+  <input type="text" id="petname" name="petname" value=""><br>
+
+  <label for="petcolor">Pet Color:</label><br>
+  <input type="text" id="petcolor" name="petcolor" value=""><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+
+<div id="main"
+     class="red-color">....loading.....</div>
+
+<button onclick="loadData()">click me!</button>
+<script>
+  function createPet(event) {
+    event.preventDefault()
+    let petName = document.getElementById("petname").value;
+    let color =   document.getElementById("petcolor").value;
+    let pet = {
+      name: petName,
+      Color: color
+    }
+
+    fetch("https://localhost:59009/api/pets", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(pet)
+    }).then(res => {
+      console.log("Request complete! response:", res);
+    }).catch(err => {
+      console.error(err);
+    });
+  }
+  function loadData() {
+    fetch('https://localhost:59009/api/pets')
+      .then(response => response.json())
+      .then(pets => {
+        console.log(pets);
+        let datatags = "";
+        pets.forEach(pet => {
+          datatags += "<h1>" + pet.name + "</h1>"
+        })
+        document.getElementById("main").innerHTML = datatags;
+      })
+
+  }
+</script>
+</body>
+</html>
+
+
