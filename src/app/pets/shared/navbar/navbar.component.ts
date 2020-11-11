@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PetserviceService} from '../petservice.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private petService: PetserviceService) { }
 
   ngOnInit(): void {
   }
