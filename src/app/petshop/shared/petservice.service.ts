@@ -22,16 +22,13 @@ export class PetserviceService {
 
   Pets: Pet[];
   getpets(): Observable<Pet[]>{
-<<<<<<< HEAD:src/app/petshop/shared/petservice.service.ts
-   return  this.http.get<Pet[]>('https://localhost:59009/api/pets');
+    httpOptions.headers = httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());
+
+    return  this.http.get<Pet[]>('https://localhost:59009/api/pets', httpOptions);
   }
   // tslint:disable-next-line:typedef
 getpetbyid(id: number) {
     return  this.http.get<Pet>('https://localhost:59009/api/pets/'+id);
-=======
-    httpOptions.headers = httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());
-    return this.http.get<Pet[]>('https://localhost:44348/api/pets', httpOptions);
->>>>>>> 0fd045844dce981694a38977756b9e87d14c7590:src/app/pets/shared/petservice.service.ts
   }
 
 }

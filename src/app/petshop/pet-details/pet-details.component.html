@@ -1,4 +1,3 @@
-<ng-container *ngIf="pet">
 <h3>Pet Details</h3>
 <h3>Id: {{pet.id}}</h3>
 <h3>Name: {{pet.name}}</h3>
@@ -6,7 +5,6 @@
   <h3>Birth: {{pet.birthdate}}</h3>
   <h3>Price: {{pet.price}}</h3>
   <h3>Owner: {{pet.petOwner.ownerFirstName}} {{pet.petOwner.ownerLastName}}</h3>
-</ng-container>
 <ng-container *ngIf="!pet">
   <h2>Loading...</h2>
 </ng-container>
