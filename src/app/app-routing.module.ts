@@ -9,9 +9,9 @@ import {UserLoginComponent} from './petshop/shared/user-login/user-login.compone
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'pets', component: PetsListComponent , canActivate: [AuthGuard]},
-  { path: 'owners', component: OwnersListComponent},
-  { path: ':id', component: PetDetailsComponent},
+  { path: 'pets', component: PetsListComponent},
+  { path: 'owners', component: OwnersListComponent, canActivate: [AuthGuard]},
+  { path: 'pets/getdetails/:id', component: PetDetailsComponent},
   { path: 'login', component: UserLoginComponent },
 
 ];

@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { OwnersListComponent } from './petshop/owners-list/owners-list.component';
 import { PetDetailsComponent } from './petshop/pet-details/pet-details.component';
 import {UserLoginComponent} from './petshop/shared/user-login/user-login.component';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import {UserLoginComponent} from './petshop/shared/user-login/user-login.compone
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
