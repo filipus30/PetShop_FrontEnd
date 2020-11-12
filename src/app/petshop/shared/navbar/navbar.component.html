@@ -2,7 +2,12 @@
   <a routerLink="/" >Home</a>
   <a routerLink="pets" >All Pets</a>
   <a routerLink="/owners">All Owners</a>
-  <a href="#about">About</a>
+  <a href="/aboutus">About us</a>
+  <ng-container *ngIf="!check()">
   <a routerLink="login">Login</a>
+  </ng-container>
+  <ng-container *ngIf="check()">
+    <a routerLink="login">Logged in !</a>
+  </ng-container>
 </div>
 

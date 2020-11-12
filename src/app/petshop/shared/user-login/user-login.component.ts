@@ -5,6 +5,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {Observable, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
+import {IsuserloggedinserviceService} from '../isuserloggedinservice.service';
 
 @Component({
   selector: 'app-user-login',
@@ -22,7 +23,7 @@ export class UserLoginComponent implements OnInit {
   loading = false;
   loggedIn = false;
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService,private isuserloggedinService: IsuserloggedinserviceService, private router: Router) { }
 
   ngOnInit(): void {
     this.loggedIn = this.isLoggedIn();
@@ -35,6 +36,7 @@ export class UserLoginComponent implements OnInit {
       this.loggedIn = true;
       this.router.navigate(['/']);
       },
+
       error => {
         this.errormessage = error.message;
         this.loading = false;
@@ -45,15 +47,18 @@ export class UserLoginComponent implements OnInit {
     this.subscription.unsubscribe();
     this.authenticationService.logout();
     this.loggedIn = false;
+    window.location.reload();
   }
 
   isLoggedIn(): boolean {
     this.user.userToken = this.authenticationService.getToken();
     if(this.user.userToken !== null){
       this.user.username = this.authenticationService.getUsername();
+      this.isuserloggedinService.setTrue();
       return true;
     }
     else{
+      this.isuserloggedinService.setFalse();
       return false;
     }
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PetserviceService} from '../petservice.service';
+import {IsuserloggedinserviceService} from '../isuserloggedinservice.service';
 
 
 @Component({
@@ -9,9 +10,11 @@ import {PetserviceService} from '../petservice.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private petService: PetserviceService) { }
+  constructor(private petService: PetserviceService,private isuserloggedinService: IsuserloggedinserviceService) { }
 
   ngOnInit(): void {
   }
-
+check(): boolean {
+   return this.isuserloggedinService.getBoolean();
+}
 }

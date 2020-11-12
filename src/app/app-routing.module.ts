@@ -6,6 +6,7 @@ import {OwnersListComponent} from './petshop/owners-list/owners-list.component';
 import {PetDetailsComponent} from './petshop/pet-details/pet-details.component';
 import {AuthGuard} from './petshop/shared/guards/auth.guard';
 import {UserLoginComponent} from './petshop/shared/user-login/user-login.component';
+import {AboutusComponent} from './aboutus/aboutus.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
   { path: 'owners', component: OwnersListComponent, canActivate: [AuthGuard]},
   { path: 'pets/getdetails/:id', component: PetDetailsComponent},
   { path: 'login', component: UserLoginComponent },
+  { path: 'aboutus', component: AboutusComponent },
 
 ];
 

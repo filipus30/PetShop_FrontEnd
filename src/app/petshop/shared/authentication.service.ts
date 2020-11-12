@@ -19,7 +19,9 @@ login(Username: string, Password: string): Observable<boolean>{
       // store username and jwt token in local storage to keep user logged in between page refreshed
       localStorage.setItem('currentUser', JSON.stringify({ username: Username, token: token }));
       // return true to indicate successful login
+      window.location.reload();
       return true;
+
     } else {
       // return false to indicate failed login
       return false;

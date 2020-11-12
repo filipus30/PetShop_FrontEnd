@@ -11,6 +11,7 @@ import { OwnersListComponent } from './petshop/owners-list/owners-list.component
 import { PetDetailsComponent } from './petshop/pet-details/pet-details.component';
 import {UserLoginComponent} from './petshop/shared/user-login/user-login.component';
 import {CommonModule} from '@angular/common';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {CommonModule} from '@angular/common';
     OwnersListComponent,
     PetDetailsComponent,
     UserLoginComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,
