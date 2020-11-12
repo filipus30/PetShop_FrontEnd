@@ -11,12 +11,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
-  user: User;
+  user: User = new User();
   userForm = new FormGroup( {
     username: new FormControl(''),
     password: new FormControl('')
   });
-  subscription: Subscription;
+  subscription: Subscription = new Subscription();
   errormessage = '';
   loading = false;
   loggedIn = false;
@@ -29,10 +29,10 @@ export class UserLoginComponent implements OnInit {
 
   userLogin(): void {
     this.loading = true;
-    const user = this.userForm.value;
-    this.subscription = this.petService.login(user.username, user.password).subscribe(success => {
+    this.user = this.userForm.value;
+    this.subscription = this.petService.login(this.user.username, this.user.password).subscribe(success => {
       this.loggedIn = true;
-      // this.router.navigate(['/']);
+      this.router.navigate(['/']);
       },
       error => {
         this.errormessage = error.message;
@@ -43,11 +43,13 @@ export class UserLoginComponent implements OnInit {
   logout(): void {
     this.subscription.unsubscribe();
     this.petService.logout();
+    this.loggedIn = false;
   }
 
   isLoggedIn(): boolean {
     this.user.userToken = this.petService.getToken();
     if(this.user.userToken !== null){
+      this.user.username = this.petService.getUsername();
       return true;
     }
     else{

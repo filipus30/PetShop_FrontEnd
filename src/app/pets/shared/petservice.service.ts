@@ -16,13 +16,13 @@ export class PetserviceService {
    return this.http.get<Pet[]>('https://localhost:44348/api/pets');
   }
 
-  login(username: string, password: string): Observable<boolean>{
-    return this.http.post<any>('https://localhost:44348/api/token', {username, password }).pipe(map(response => {
+  login(Username: string, Password: string): Observable<boolean>{
+    return this.http.post<any>('https://localhost:44348/api/token', {Username, Password }).pipe(map(response => {
       const token = response.token;
       // login successful if there's a jwt token in the response
       if (token) {
         // store username and jwt token in local storage to keep user logged in between page refreshed
-        localStorage.setItem('currentUser', JSON.stringify({ username: name, token: token }));
+        localStorage.setItem('currentUser', JSON.stringify({ username: Username, token: token }));
         // return true to indicate successful login
         return true;
         } else {
