@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NavbarComponent} from './pets/shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './pets/shared/user-login/user-login.component';
+import {AuthGuard} from './pets/shared/guards/auth.guard';
 
 @NgModule({
   declarations: [

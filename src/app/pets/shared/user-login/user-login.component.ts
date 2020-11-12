@@ -4,6 +4,7 @@ import {PetserviceService} from '../petservice.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Observable, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../authentication.service';
 
 @Component({
   selector: 'app-user-login',
@@ -21,7 +22,7 @@ export class UserLoginComponent implements OnInit {
   loading = false;
   loggedIn = false;
 
-  constructor(private petService: PetserviceService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.loggedIn = this.isLoggedIn();
@@ -30,7 +31,7 @@ export class UserLoginComponent implements OnInit {
   userLogin(): void {
     this.loading = true;
     this.user = this.userForm.value;
-    this.subscription = this.petService.login(this.user.username, this.user.password).subscribe(success => {
+    this.subscription = this.authenticationService.login(this.user.username, this.user.password).subscribe(success => {
       this.loggedIn = true;
       this.router.navigate(['/']);
       },
@@ -42,14 +43,14 @@ export class UserLoginComponent implements OnInit {
 
   logout(): void {
     this.subscription.unsubscribe();
-    this.petService.logout();
+    this.authenticationService.logout();
     this.loggedIn = false;
   }
 
   isLoggedIn(): boolean {
-    this.user.userToken = this.petService.getToken();
+    this.user.userToken = this.authenticationService.getToken();
     if(this.user.userToken !== null){
-      this.user.username = this.petService.getUsername();
+      this.user.username = this.authenticationService.getUsername();
       return true;
     }
     else{
